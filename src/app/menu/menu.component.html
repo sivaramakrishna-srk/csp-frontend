@@ -1,0 +1,32 @@
+<img
+  src="../../assets/WhatsApp Image 2023-07-07 at 11.16.27 AM.jpeg"
+  [height]="150"
+  width="100%"
+  
+  alt=""
+  srcset=""
+/>
+<body>
+  <p>
+    <mat-toolbar color="primary">
+      <div class="k3" [routerLink]="[{ outlets: { second: ['aboutus'] } }]">ABOUTUS</div>
+      <br />
+      <div class="k2" [routerLink]="[{ outlets: { second: ['contact'] } }]">CONTACT</div>
+      <br />
+      <div class="k4" [routerLink]="[{ outlets: { second: ['regform'] } }]">MothersReg</div>
+      <br />
+      <div class="k4" [routerLink]="[{ outlets: { second: ['children'] } }]">ChildrenReg</div>
+      <br />
+      <div class="k4" [routerLink]="[{ outlets: { second: ['item'] } }]">ItemReg</div>
+      <br />
+      <div class="k4" [routerLink]="[{ outlets: { second: ['mothersinfo'] } }]">MothersInfo</div>
+      <br />
+      <div class="k4" [routerLink]="[{ outlets: { second: ['childinfo'] } }]">ChildInfo</div>
+      <br />
+      <div class="k4" [routerLink]="[{ outlets: { second: ['iteminfo'] } }]">ItemInfo</div>
+      <br />
+      <div class="k4" routerLink='/home'>Logout</div>
+    </mat-toolbar>
+  </p>
+  <router-outlet name="second"></router-outlet>
+</body>

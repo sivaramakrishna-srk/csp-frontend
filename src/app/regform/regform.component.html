@@ -1,0 +1,108 @@
+<div class="container">
+  <div class="content">
+    <div class="col-xl-6">
+      <div class="card-body p-md-5 text-black">
+        <h3 class="mb-5 text-uppercase">Mothers registration form</h3>
+
+        <div class="row">
+          <div class="col-md-30 mb-4">
+            <div class="form-outline">
+              <input
+                type="text"
+                id="form3Example1m"
+                class="form-control form-control-lg"
+                [(ngModel)]="User.Id_No"
+              />
+              <label class="form-label" for="form3Example1m">Id Number</label>
+            </div>
+          </div>
+
+          <div class="col-md-30 mb-4">
+            <div class="form-outline">
+              <input
+                type="text"
+                id="form3Example1n"
+                class="form-control form-control-lg"
+                [(ngModel)]="User.Name"
+              />
+              <label class="form-label" for="form3Example1n">Name</label>
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="form-outline mb-4">
+            <input
+              type="text"
+              id="form3Example8"
+              class="form-control form-control-lg"
+              [(ngModel)]="User.Age"
+            />
+            <label class="form-label" for="form3Example8">Age</label>
+          </div>
+
+          <div class="form-outline mb-4">
+            <input
+              type="text"
+              id="form3Example9"
+              class="form-control form-control-lg"
+              [(ngModel)]="User.DOB"
+            />
+            <label class="form-label" for="form3Example9">DOB</label>
+          </div>
+
+          <div class="form-outline mb-4">
+            <input
+              type="text"
+              id="form3Example9"
+              class="form-control form-control-lg"
+              [(ngModel)]="User.Aadhar_no"
+            />
+            <label class="form-label" for="form3Example9">Aadhar_no</label>
+          </div>
+
+          <div class="form-outline mb-4">
+            <input
+              type="text"
+              id="form3Example90"
+              class="form-control form-control-lg"
+              [(ngModel)]="User.Address"
+            />
+            <label class="form-label" for="form3Example90">Address</label>
+          </div>
+
+          <div class="d-flex justify-content-end pt-3">
+            <button
+              type="button"
+              class="btn btn-warning btn-lg ms-2"
+              (click)="Insert()"
+            >
+              Submit
+            </button>
+          </div>
+          <div class="alert alert-success my-2" *ngIf="!(SuccessMsg == '')">
+            {{ SuccessMsg }}
+          </div>
+          <div class="alert alert-danger my-2" *ngIf="!(ErrorMsg == '')">
+            {{ ErrorMsg }}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    var video = document.getElementById("myVideo");
+    var btn = document.getElementById("myBtn");
+
+    function myFunction() {
+      if (video.paused) {
+        video.play();
+        btn.innerHTML = "Pause";
+      } else {
+        video.pause();
+        btn.innerHTML = "Play";
+      }
+    }
+  </script>
+</div>

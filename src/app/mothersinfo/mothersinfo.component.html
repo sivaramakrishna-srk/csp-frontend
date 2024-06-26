@@ -1,0 +1,153 @@
+<div class="d-block mx-auto w-50">
+    <label for="Id_No">Id_No</label>
+    <input
+      type="text"
+      name="Id_No"
+      id="Id_No"
+      class="form-control"
+      [(ngModel)]="Id_No"
+    />
+    <div class="d-flex my-2">
+      <input
+        type="submit"
+        value="Get all"
+        class="btn btn-primary"
+        (click)="Read('All')"
+      />
+      <input
+        type="submit"
+        [value]="'Get ' + Id_No"
+        class="btn btn-primary mx-1"
+        (click)="Read(Id_No)"
+      />
+    </div>
+    <p *ngIf="!(Results.length != 0 && GotResult)" class="text-danger">
+      No Result to Show
+    </p>
+  </div>
+  <table class="table w-50 mx-auto" *ngIf="Results.length != 0 && GotResult">
+    <thead class="thead-dark">
+      <tr>
+        <th scope="col">Id_No</th>
+        <th scope="col">Name</th>
+        <th scope="col">Age</th>
+        <th scope="col">DOB</th>
+        <th scope="col">Aadhar_no</th>
+        <th scope="col">Address</th>
+        <th scope="col">Delete</th>
+        <th scope="col">Update</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let Data of Results">
+        <th scope="row">{{ Data[0] }}</th>
+        <td>{{ Data[1] }}</td>
+        <td>{{ Data[2] }}</td>
+        <td>{{ Data[3] }}</td>
+        <td>{{ Data[4] }}</td>
+        <td>{{ Data[5] }}</td>
+        <td>
+          <input
+            type="button"
+            role="button"
+            class="btn btn-danger"
+            value="delete"
+            (click)="Delete(Data[0])"
+          />
+        </td>
+        <td>
+          <button
+            type="button"
+            class="btn btn-primary"
+            data-bs-toggle="modal"
+            data-bs-target="#exampleModal"
+            (click)="Read1(Data[0])"
+          >
+            Update
+          </button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <div
+    class="modal fade"
+    id="exampleModal"
+    tabindex="-1"
+    aria-labelledby="exampleModalLabel"
+    aria-hidden="true"
+  >
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="exampleModalLabel">Updated Values</h1>
+          <button
+            type="button"
+            class="btn-close"
+            data-bs-dismiss="modal"
+            aria-label="Close"
+          ></button>
+        </div>
+        <div class="modal-body">
+          <input
+            type="text"
+            name="Id_No"
+            id="Id_No"
+            placeholder="Id_No"
+            class="form-control my-1"
+            [(ngModel)]="UpdatedUser.Id_No"
+          />
+          <input
+            type="text"
+            name="Name"
+            id="Name"
+            placeholder="Name"
+            class="form-control my-1"
+            [(ngModel)]="UpdatedUser.Name"
+          />
+          <input
+            type="text"
+            name="Age"
+            id="Age"
+            placeholder="Age"
+            class="form-control my-1"
+            [(ngModel)]="UpdatedUser.Age"
+          />
+          <input
+            type="text"
+            name="DOB"
+            id="DOB"
+            placeholder="DOB"
+            class="form-control my-1"
+            [(ngModel)]="UpdatedUser.DOB"
+          />
+          <input
+            type="text"
+            name="Mothers_name"
+            id="Mothers_name"
+            placeholder="Mothers_name"
+            class="form-control my-1"
+            [(ngModel)]="UpdatedUser.Aadhar_no"
+          />
+          <input
+            type="text"
+            name="Address"
+            id="Address"
+            placeholder="Address"
+            class="form-control my-1"
+            [(ngModel)]="UpdatedUser.Address"
+          />
+        </div>
+        <div class="modal-footer">
+          <button
+            type="button"
+            class="btn btn-primary"
+            data-bs-dismiss="modal"
+            (click)="Update(Id_No, UpdatedUser)"
+          >
+            Save changes
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+  
